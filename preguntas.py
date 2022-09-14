@@ -19,10 +19,10 @@ def pregunta_01():
     Rta/
     214
     """
-    infoCol = open("data.csv", "r").readlines() 
-    infoCol = [z.replace("\n", "") for z in infoCol] 
-    infoCol = [z.split("\t") for z in infoCol]
-    data2 = [z[1] for z in infoCol[0:]]
+    infoCol = open("data.csv", "r").readlines() #Se hace lectura de la data
+    infoCol = [z.replace("\n", "") for z in infoCol] #Retiramos el retorno de carro
+    infoCol = [z.split("\t") for z in infoCol] #Separamos
+    data2 = [z[1] for z in infoCol[0:]] #Capturamos la columna 2
 
     suma = 0
     for i in data2:
