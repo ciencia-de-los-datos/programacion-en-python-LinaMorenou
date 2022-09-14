@@ -16,12 +16,19 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 def pregunta_01():
     """
     Retorne la suma de la segunda columna.
-
-    Rta/216
+    Rta/
     214
-
     """
-    return
+    infoCol = open("data.csv", "r").readlines() 
+    infoCol = [z.replace("\n", "") for z in infoCol] 
+    infoCol = [z.split("\t") for z in infoCol]
+    data2 = [z[1] for z in infoCol[0:]]
+
+    suma = 0
+    for i in data2:
+        suma = suma + int(i)
+
+    return suma
 
 
 def pregunta_02():
