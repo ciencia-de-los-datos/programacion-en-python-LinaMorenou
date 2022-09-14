@@ -16,18 +16,16 @@ Utilice el archivo `data.csv` para resolver las preguntas.
 def pregunta_01():
     """
     Retorne la suma de la segunda columna.
-    
     Rta/
     214
-    
     """
-    infoCol = open("data.csv", "r").readlines() 
-    infoCol = [z.replace("\n", "") for z in infoCol] 
-    infoCol = [z.split("\t") for z in infoCol] 
-    data2 = [z[1] for z in infoCol[0:]] 
+    df = open("data.csv", "r").readlines() #Se hace lectura de la data
+    df = [z.replace("\n", "") for z in df] #Retiramos el retorno de carro
+    df = [z.split("\t") for z in df] #Separamos
+    Col2 = [z[1] for z in df[0:]] #Capturamos la columna 2
 
     suma = 0
-    for i in data2:
+    for i in Col2:
         suma = suma + int(i)
 
     return suma
@@ -46,17 +44,17 @@ def pregunta_02():
         ("E", 14),
     ]
     """
-    infoCol = open("data.csv", "r").readlines() #Se hace lectura de la data
-    infoCol = [z.replace("\n", "") for z in infoCol] #Retiramos el retorno de carro
-    infoCol = [z.split("\t") for z in infoCol] #Separamos
+    df = open("data.csv", "r").readlines() #Se hace lectura de la data
+    df = [z.replace("\n", "") for z in df] #Retiramos el retorno de carro
+    df = [z.split("\t") for z in df] #Separamos
 
     Col1 = [z[0] for z in df[0:]]
 
     from collections import Counter
 
-    listup = Counter(Col1)
-    listup = dict(listup)
-    ordenada = sorted(listup.items())
+    tuples_list = Counter(Col1)
+    tuples_list = dict(tuples_list)
+    ordenada = sorted(tuples_list.items())
 
     return ordenada
     
