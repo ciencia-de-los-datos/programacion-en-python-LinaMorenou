@@ -35,7 +35,6 @@ def pregunta_02():
     """
     Retorne la cantidad de registros por cada letra de la primera columna como la lista
     de tuplas (letra, cantidad), ordendas alfabéticamente.
-
     Rta/
     [
         ("A", 8),
@@ -44,9 +43,20 @@ def pregunta_02():
         ("D", 6),
         ("E", 14),
     ]
-
     """
-    return
+    infoCol = open("data.csv", "r").readlines() 
+    infoCol = [z.replace("\n", "") for z in infoCol] 
+    infoCol = [z.split("\t") for z in infoCol]
+
+    data2 = [z[0] for z in infoCol[0:]]
+
+    from collections import Counter
+
+    listup = Counter(data1)
+    listup = dict(listup)
+    resultado = sorted(listup.items())
+
+    return resultado
 
 
 def pregunta_03():
