@@ -46,6 +46,19 @@ def pregunta_02():
         ("E", 14),
     ]
     """
+    infoCol = open("data.csv", "r").readlines() #Se hace lectura de la data
+    infoCol = [z.replace("\n", "") for z in infoCol] #Retiramos el retorno de carro
+    infoCol = [z.split("\t") for z in infoCol] #Separamos
+
+    Col1 = [z[0] for z in df[0:]]
+
+    from collections import Counter
+
+    listup = Counter(Col1)
+    listup = dict(listup)
+    ordenada = sorted(listup.items())
+
+    return ordenada
     
 
 def pregunta_03():
