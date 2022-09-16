@@ -34,6 +34,8 @@ def pregunta_01():
     return suma
 
 
+
+ 
 def pregunta_02():
     """
     Retorne la cantidad de registros por cada letra de la primera columna como la lista
