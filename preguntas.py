@@ -46,9 +46,9 @@ def pregunta_02():
         ("E", 14),
     ]
     """
-    df = open("data.csv", "r").readlines() #Se hace lectura de la data
-    df = [z.replace("\n", "") for z in df] #Retiramos el retorno de carro
-    df = [z.split("\t") for z in df] #Separamos
+    df = open("data.csv", "r").readlines()
+    df = [z.replace("\n", "") for z in df]
+    df = [z.split("\t") for z in df]
 
     Col1 = [z[0] for z in df[0:]]
 
