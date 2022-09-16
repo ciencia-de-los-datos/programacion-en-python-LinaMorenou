@@ -21,6 +21,8 @@ def pregunta_01():
     214
     
     """
+    return
+
     df = open("data.csv" , "r").readlines() #Se hace lectura de la data
     df = [z.replace("\n" , "") for z in df] #Retiramos el retorno de carro
     df = [z.split("\t") for z in df] #Separamos
