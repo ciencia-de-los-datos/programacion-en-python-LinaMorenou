@@ -1,41 +1,49 @@
-"""
-Laboratorio de Programación Básica en Python para Manejo de Datos
------------------------------------------------------------------------------------------
-
-Este archivo contiene las preguntas que se van a realizar en el laboratorio.
-
-No puede utilizar pandas, numpy o scipy. Se debe utilizar solo las funciones de python
-básicas.
-
-Utilice el archivo `data.csv` para resolver las preguntas.
+##Se extraen los datos del archivo
+def getData():
+    file=open('data.csv',mode='r',encoding='utf-8').readlines()
+    data=[rows.replace("\n","").split("\t") for rows in file]
+    return data
 
 
-"""
+#Hice una función que tomara una fila en especifico
+def getColumn(number):
+    data = getData()
+    myList=list()
+    for row in data:
+        myList.append(row[number])
+    return myList
 
+##Hice otra función que retorna los máximos y los mínimos de una lista/tupla que tenga 2 elementos
+def findMinMax(equivalent):
+    dictionary=dict()
+    for element in equivalent:
+        keyUse=element[0]
+        valueUse=int(element[1])
+        if keyUse in dictionary.keys():        
+            #Para encontar el máximo
+            if valueUse>dictionary[keyUse]["top"]:
+                dictionary[keyUse]["top"]=valueUse    
+            #Para encontrar el minimo
+            if valueUse<dictionary[keyUse]["bottom"]:
+                dictionary[keyUse]["bottom"]=valueUse
+        else:
+            dictionary[keyUse]={
+                "top":valueUse,
+                "bottom":valueUse
+            }
+    return dictionary
 
 def pregunta_01():
+
     """
     Retorne la suma de la segunda columna.
-   
     Rta/
     214
-    
     """
-
-    df = open("\data.csv" , "r").readlines() #Se hace lectura de la data
-    df = [z.replace("\n" , "") for z in df] #Retiramos el retorno de carro
-    df = [z.split("\t") for z in df] #Separamos
-    Col2 = [z[1] for z in df[0:]] #Capturamos la columna 2
-
-    suma = 0
-    for i in Col2:
-        suma = suma + int(i)
-
-    return suma
+    solution=sum(int(x) for x in getColumn(1))
+    return solution
 
 
-
- 
 def pregunta_02():
     """
     Retorne la cantidad de registros por cada letra de la primera columna como la lista
